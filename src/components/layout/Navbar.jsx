@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../redux/authSlice";
 import logo from "../../assets/argentBankLogo.png"; 
@@ -6,6 +6,12 @@ import logo from "../../assets/argentBankLogo.png";
 function Navbar() {
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch(logout());  // Logout user
+    navigate("/");  // Redirect to home
+  };
 
   return (
     <nav className="main-nav">
@@ -16,10 +22,10 @@ function Navbar() {
       <div>
         {user ? (
           <>
-            <span className="main-nav-item">
+            <Link className="main-nav-item" to="/profile">
               <i className="fa fa-user-circle"></i> {user.firstName}
-            </span>
-            <button className="main-nav-item" onClick={() => dispatch(logout())}>
+            </Link>
+            <button className="main-nav-item" onClick={handleLogout}>
               <i className="fa fa-sign-out"></i> Sign Out
             </button>
           </>

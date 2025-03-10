@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 // Initial state of Redux store
 const initialState = {
   user: null,
-  token: null,
+  token: localStorage.getItem("token") || null,
 };
 
 // Creating a slice
