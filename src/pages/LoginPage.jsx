@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { loginSuccess, setUser } from "../redux/authSlice";
+import { loginSuccess } from "../redux/authSlice";
+import { setUser } from "../redux/userSlice";
 import { loginUser, getUserProfile } from "../api/api";
 
 function LoginPage() {

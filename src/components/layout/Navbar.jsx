@@ -1,16 +1,18 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../redux/authSlice";
+import { clearUser } from "../../redux/userSlice"; 
 import logo from "../../assets/argentBankLogo.png"; 
 
 function Navbar() {
-  const { user } = useSelector((state) => state.auth);
+  const user = useSelector((state) => state.user.user); 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    dispatch(logout());  // Logout user
-    navigate("/");  // Redirect to home
+    dispatch(logout()); 
+    dispatch(clearUser()); 
+    navigate("/");
   };
 
   return (
