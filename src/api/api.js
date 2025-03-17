@@ -28,10 +28,6 @@ export const fetchData = async (endpoint, method, data = null, token = null) => 
 export const loginUser = (email, password) =>
   fetchData("login", "POST", { email, password });
 
-// Signup function
-export const signupUser = (email, password, firstName, lastName) =>
-  fetchData("signup", "POST", { email, password, firstName, lastName });
-
 // Get user profile
 export const getUserProfile = (token) =>
   fetchData("profile", "POST", null, token);

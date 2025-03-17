@@ -38,18 +38,18 @@ function ProfilePage() {
     }
   }, [token, navigate, dispatch, user]);
 
-  // ✅ Функция для сохранения имени пользователя
+  //  Function to save username
   const handleSave = async () => {
     try {
       const { body } = await updateUserProfile(token, firstName, lastName);
-      dispatch(setUser(body)); // Сохраняем обновленного пользователя в Redux
+      dispatch(setUser(body)); // Save the updated user in Redux
       setIsEditing(false);
     } catch (error) {
       console.error("Error updating user profile:", error);
     }
   };
 
-  // ✅ Функция отмены редактирования
+  //  Undo Edit Function
   const handleCancel = () => {
     setFirstName(user.firstName);
     setLastName(user.lastName);
