@@ -14,10 +14,6 @@ const userSlice = createSlice({
     setUser: (state, action) => {
       state.user = action.payload;
     },
-    // Update user profile
-    updateUser: (state, action) => {
-      state.user = { ...state.user, ...action.payload };
-    },
     // Clear user data on logout
     clearUser: (state) => {
       state.user = null;
