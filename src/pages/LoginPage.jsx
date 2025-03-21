@@ -31,7 +31,8 @@ function LoginPage() {
       saveEmail(); 
       navigate("/profile");
     } catch (err) {
-      setError(err.message);
+      console.error(err);
+      setError("Incorrect email or password.");
     }
   };
 
